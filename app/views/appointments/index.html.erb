@@ -1,0 +1,42 @@
+ <div class="container-fluid">
+
+<p id="notice"><%= notice %></p>
+
+<h1 class="display-6">The list of appointments</h1>
+<form action="/search3">
+ <input class="form-control me-2" name="q" type="search" placeholder="Search for an Appointment" aria-label="Search">
+ <button class="btn btn-outline-dark" type="submit">Search</button>
+</form>
+
+<table class="table table-dark table-striped">
+  <thead>
+    <tr>
+      <th>Barber</th>
+      <th>Customer</th>
+      <th>Notes</th>
+      <th>Date</th>
+      <th>User ID</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @appointments.each do |appointment| %>
+      <tr>
+        <td><%= appointment.barber %></td>
+        <td><%= appointment.customer %></td>
+        <td><%= appointment.notes %></td>
+        <td><%= appointment.date %></td>
+        <td><%= appointment.appendID %></td>
+        <td><%= link_to 'Show', appointment %></td>
+        <td><%= link_to 'Edit', edit_appointment_path(appointment) %></td>
+        <td><%= link_to 'Destroy', appointment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<button type="button" class="btn btn-outline-dark"><%= link_to 'Create a new appointment?', new_appointment_path %></button>
+
+</div>

@@ -1,0 +1,48 @@
+<div class="container-fluid">
+
+</nav>
+<p id="notice"><%= notice %></p>
+
+<h1 class="display-6">The list of barbers</h1>
+<form action="/search">
+ <input class="form-control me-2" name="q" type="search" placeholder="Search for a Barber" aria-label="Search">
+ <button class="btn btn-outline-dark" type="submit">Search</button>
+</form>
+<table class="table table-dark table-striped">
+  <thead>
+    <tr>
+      <th scope="row">First name</th>
+      <th scope="row">Last name</th>
+      <th scope="row">Age</th>
+      <th scope="row">Email</th>
+      <th scope="row">User ID</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @barbers.each do |barber| %>
+      <tr>
+        <td><%= barber.barber %></td> <!-- here we use our decorator design pattern to add "Barber" infront of each barbers name-->
+        <td><%= barber.last_name %></td>
+        <td><%= barber.age %></td>
+        <td><%= barber.email %></td>
+        <td><%= barber.appendID %></td> <!-- here we use our decorator design pattern to add "Created by the User with ID =" for each ID field-->
+        <td><%= link_to 'Show', barber %></td>
+        <td><%= link_to 'Edit', edit_barber_path(barber) %></td>
+        <td><%= link_to 'Destroy', barber, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<br>
+<button type="button" class="btn btn-outline-dark"><%= link_to 'Create a new barber?', new_barber_path %></button>
+
+      
+</div>
+
+
+
+

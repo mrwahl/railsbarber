@@ -1,0 +1,30 @@
+<div class="container-fluid">
+<h1 class="display-6">Search results</h1>
+
+
+<table class="table table-dark table-striped">
+  <thead>
+    <tr>
+      <th scope="row">First name</th>
+      <th scope="row">Last name</th>
+      <th scope="row">Age</th>
+      <th scope="row">Email</th>
+      <th scope="row">User ID</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+<!-- for each we will the data based on whatever was entered in the search query -->
+  <tbody>
+    <% @barbers.each do |barber| %>
+      <tr>
+        <td><%= barber.first_name %></td>
+        <td><%= barber.last_name %></td>
+        <td><%= barber.age %></td>
+        <td><%= barber.email %></td>
+        <td><%= barber.user_id %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+</div>

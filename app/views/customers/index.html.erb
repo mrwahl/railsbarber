@@ -1,0 +1,41 @@
+<div class="container-fluid">
+<p id="notice"><%= notice %></p>
+
+<h1 class="display-6">The list of customers</h1>
+<form action="/search2">
+ <input class="form-control me-2" name="q" type="search" placeholder="Search for a Customer" aria-label="Search">
+ <button class="btn btn-outline-dark" type="submit">Search</button>
+</form>
+
+<table class="table table-dark table-striped">
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Age</th>
+      <th>Email</th>
+      <th>User ID</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @customers.each do |customer| %>
+      <tr>
+        <td><%= customer.customer %></td>
+        <td><%= customer.last_name %></td>
+        <td><%= customer.age %></td>
+        <td><%= customer.email %></td>
+        <td><%= customer.appendID %></td>
+        <td><%= link_to 'Show', customer %></td>
+        <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
+        <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<button type="button" class="btn btn-outline-dark"><%= link_to 'Create a new customer?', new_customer_path %></button>
+</div>
+

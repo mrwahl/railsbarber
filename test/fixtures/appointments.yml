@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  barber: barber1
+  customer: barber
+  notes: hello
+  date: 2022-03-07 14:10:37
+
+two:
+  barber: barber2
+  customer: me
+  notes: hi
+  date: 2022-03-07 14:10:37

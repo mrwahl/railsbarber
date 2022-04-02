@@ -1,0 +1,61 @@
+<%= form_with(model: barber) do |form| %>
+  <% if barber.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(barber.errors.count, "error") %> prohibited this barber from being saved:</h2>
+
+      <ul>
+        <% barber.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="container-fluid">
+  <h1 class="display-6">Add a new Barber below</h1>
+
+  <div class="mb-3">
+  <div class="form-control">
+    <label  class="form-label"><%= form.label :first_name %></label>
+    <%= form.text_field :first_name %>
+  </div>
+  </div>
+
+  <div class="mb-3">
+  <div class="form-control">
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name %>
+  </div>
+  </div>
+
+  <div class="mb-3">
+  <div class="form-control">
+    <%= form.label :age %>
+    <%= form.number_field :age %>
+  </div>
+  </div>
+
+  <div class="mb-3">
+  <div class="form-control">
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+  </div>
+
+  <div class="mb-3">
+  <div class="form-control">
+    <%= form.number_field :user_id, id: :barber_user_id,
+    value:current_user.id, type: :hidden
+    %>
+    
+  </div>
+  </div>
+
+
+<!--Submit button below for the above form-->
+  <button type="button" class="btn btn-outline-dark"><%= form.submit'Create a new barber?' %> </button>
+  
+<% end %>
+<button type="button" class="btn btn-outline-dark"><%= link_to 'Go back?', barbers_path %></button>
+</div>
+
+

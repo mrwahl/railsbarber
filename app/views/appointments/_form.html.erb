@@ -1,0 +1,60 @@
+<%= form_with(model: appointment) do |form| %>
+  <% if appointment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
+
+      <ul>
+        <% appointment.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="container-fluid">
+  
+  <div class="mb-3">
+  <div class="form-control">
+    <label  class="form-label"><%= form.label :barber %></label>
+    <%= form.text_field :barber %>
+  </div>
+  </div>
+
+<div class="mb-3">
+  <div class="form-control">
+    <label  class="form-label"><%= form.label :customer %></label>
+    <%= form.text_field :customer %>
+  </div>
+  </div>
+
+<div class="mb-3">
+  <div class="form-control">
+    <label  class="form-label"><%= form.label :notes %></label>
+    <%= form.text_field :notes %>
+  </div>
+  </div>
+
+
+  <div class="mb-3">
+   <div class="form-control">
+    <label  class="form-label"><%= form.label :date %></label>
+    <%= form.datetime_select :date %>
+  </div>
+  </div>
+
+
+  <div class="mb-3">
+  <div class="form-control">
+    <%= form.number_field :user_id, id: :appointment_user_id,
+    value:current_user.id, type: :hidden
+    %>
+    
+  </div>
+  </div>
+
+  
+  <!--Submit button below for the above form-->
+  <button type="button" class="btn btn-outline-dark"><%= form.submit'Create a new appointment?' %> </button>
+<% end %>
+
+<button type="button" class="btn btn-outline-dark"><%= link_to 'Go back?', appointments_path %></button>
+</div>
